@@ -1,6 +1,6 @@
 # Git 总管（git-upload）Agent 预设
 
-把一个本地项目 / 文件夹推到指定的 Git 仓库，并把「哪个项目在本地哪儿、传到哪个仓库」记进一份共用台账。
+把一个本地项目 / 文件夹推到指定的 Git 仓库，并把「哪个项目在本地哪儿、传到哪个仓库」记进当前工作区里的一份台账。
 以后说「更新」，它就照台账把该更新的项目再传一遍。
 
 ## 安装状态
@@ -9,10 +9,10 @@
 |---|---|---|
 | Agent 预设声明（bundle） | ✅ 已安装并启用 | 本目录，profile 依赖 `@local/dsh-git-upload-preset` |
 | 预设 id / 显示名 | ✅ 已注册 | `git-upload` / **Git 总管**（预设列表 order 14） |
-| 上传台账 | ✅ 已建立 | `E:\backuplib\git-uploads.md`（预置了 `dsh-cookie-clean`、`DSH-common-configuration` 两条） |
+| 上传台账 | ✅ 随工作区 | `<当前工作区>\git-uploads.md`（开会话时选哪个工作区就落在哪个工作区，没有就第一次登记时新建） |
 
 安装方式：本目录作为本地目录依赖装进桌面版 profile（`C:\Users\87463\.dsh\profiles\desktop`），依赖写法为
-`"@local/dsh-git-upload-preset": "link:E:/⭐模板库/预设库/git-upload-preset"`，并把
+`"@local/dsh-git-upload-preset": "link:C:/Users/87463/Documents/deepseek-harness/default-workspace/dsh-preset/git-upload-preset"`，并把
 `@local/dsh-git-upload-preset` 追加到 `dsh.profile.bundles` 列表末尾。
 
 ## 怎么跟它说话
@@ -44,7 +44,7 @@
 
 ## 台账格式
 
-`E:\backuplib\git-uploads.md`，一行一个项目：
+`<当前工作区>\git-uploads.md`，一行一个项目：
 
 ```markdown
 | 项目 | 本地路径 | 仓库网址 | 分支 | 最后上传 | 提交 |
@@ -52,7 +52,8 @@
 | dsh-cookie-clean | D:\DSHworkspace\dsh-cookie-clean | https://github.com/Yshuinuan/dsh-cookie-clean-script.git | main | 2026-11-14 15:20 | a1b2c3d |
 ```
 
-- 多个会话共用这一份；预设被要求只改「自己那一行」（`edit` 按行替换，禁止 `write` 整份重写）。
+- 同一个工作区里的会话共用这一份；换个工作区就是另一份台账。台账只记录从本工作区推过的项目，所以「更新」也只覆盖这些。
+- 预设被要求只改「自己那一行」（`edit` 按行替换，禁止 `write` 整份重写）。
 - 台账不上传、不提交到任何仓库。
 - 想从「更新」范围里去掉某个项目，直接删掉那一行即可。
 
@@ -68,7 +69,7 @@
 ## 校验
 
 - 预设列表里出现 **Git 总管**，`Config.listConfigs` 能看到 `preset-git-upload`（`config.id: git-upload`、`order: 14`）。
-- 新会话里说「更新」时，它会先读 `E:\backuplib\git-uploads.md` 再动手。
+- 新会话里说「更新」时，它会先读当前工作区的 `git-uploads.md` 再动手。
 - 若预设没出现：确认本目录仍在、profile `package.json` 的 `dependencies` 与 `dsh.profile.bundles` 都有这条，然后刷新页面或重启应用。
 
 ## 修改与卸载
@@ -79,6 +80,6 @@
 ## 注意
 
 - 本目录是安装源（profile 用 `link:` 引用），**不要删除、移动或改名**，移动后预设会从列表里消失。
-- 写入 `E:\backuplib` 与项目目录都受会话权限预设约束：如果会话选的是「只读 / 仅工作区写入」，台账写不进去，需要给会话放行到完全访问，或把台账挪进工作区。
+- 台账就在工作区里，「仅工作区写入」权限足够；但如果会话选的是「只读」，台账同样写不进去，需要给会话放行到完全访问。台账本身不进任何仓库提交。
 - 默认绝不 `force push`；要覆盖远端历史必须你明确要求，且只用 `--force-with-lease`。
 - `.env`、`*.pem`、`*.key`、token / credential 文件一律先问，确认前不提交。
