@@ -1,0 +1,12 @@
+# pnpm / npm
+node_modules/
+pnpm-lock.yaml
+
+# 安装脚本留下的 profile 配置备份
+*.bak-*
+
+# 系统与编辑器杂物
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log

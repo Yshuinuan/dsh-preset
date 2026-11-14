@@ -1,0 +1,12 @@
+{
+  "name": "@local/dsh-project-analyst-preset",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Agent preset that investigates a project or folder and writes ARCHITECTURE.md and USAGE.md.",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}
