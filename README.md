@@ -13,6 +13,7 @@
 | [`planner-preset`](./planner-preset) | `planner` | 策划 | 11 | 只写策划案和文档、不写代码；你说「开始写」才动笔 |
 | [`acceptance-preset`](./acceptance-preset) | `acceptance` | 项目验收 | 12 | 对照文档做整体验收，只读不改，问题定位到具体文件 |
 | [`project-manager-preset`](./project-manager-preset) | `project-manager` | 总控 | 13 | 多会话开发的总控：拆 P 任务、写任务书与开工语 |
+| [`git-upload-preset`](./git-upload-preset) | `git-upload` | Git 总管 | 14 | 把指定项目推到 Git 仓库并记台账；说「更新」就照台账再传一遍 |
 
 预设之间是流水线关系：讨论 → 灵感 / 策划 → 总控拆任务 → 实施 → 项目验收。
 

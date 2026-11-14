@@ -1,0 +1,12 @@
+{
+  "name": "@local/dsh-git-upload-preset",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Agent preset that pushes a named local project or folder to its Git remote and keeps a shared upload ledger.",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}
