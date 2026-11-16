@@ -9,7 +9,7 @@
 |---|---|---|---|---|
 | [`discussion-preset`](./discussion-preset) | `discussion` | 讨论 | 5 | 陪你讨论问题，该查的去网上查，大白话回答；默认不碰文件 |
 | [`inspiration-preset`](./inspiration-preset) | `inspiration` | 灵感 | 6 | 把随手扔来的念头补成设定或画面片段，记进灵感库 |
-| [`note-transcription-preset`](./note-transcription-preset) | `note-transcription` | 笔记转录 | 7 | 手写笔记的照片照原样敲成 md：不加、不改、不总结，格式从简 |
+| [`note-transcription-preset`](./note-transcription-preset) | `note-transcription` | 笔记转录 | 7 | 手写笔记的照片照原样敲成 md：只动格式不动字，排版分层但不加内容 |
 | [`project-analyst-preset`](./project-analyst-preset) | `project-analyst` | 项目调查 | 10 | 调查项目或文件夹，产出 `ARCHITECTURE.md` 与 `USAGE.md` |
 | [`planner-preset`](./planner-preset) | `planner` | 策划 | 11 | 只写策划案和文档、不写代码；你说「开始写」才动笔 |
 | [`acceptance-preset`](./acceptance-preset) | `acceptance` | 项目验收 | 12 | 对照文档做整体验收，只读不改，问题定位到具体文件 |
