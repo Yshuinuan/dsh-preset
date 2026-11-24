@@ -1,6 +1,6 @@
 {
   "name": "@local/dsh-project-manager-preset",
-  "version": "1.2.0",
+  "version": "1.4.0",
   "private": true,
   "type": "module",
   "dsh": {
